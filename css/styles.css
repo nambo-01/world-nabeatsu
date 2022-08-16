@@ -1,13 +1,13 @@
 body{
   font-family: 'Courier New', Courier, monospace;
   font-size: 14px;
-  background-color: #eee;
+  background-color: #fff;
 
 }
 
 .container {
   margin:  40px auto;
-  width: 300px;
+  width: 320px;
   padding: 15px;
   text-align: center;
   border: solid rgb(203, 203, 203);
@@ -31,7 +31,7 @@ body{
 #timer {
   height: 80px;
   line-height: 80px;
-  font-size: 40px;
+  font-size: 35px;
 }
 
 .btn {

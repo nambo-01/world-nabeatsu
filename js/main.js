@@ -9,7 +9,7 @@
   let startTime;
   let timeoutId;
   let elapsedTime = 0;
-  let num = 1;
+  // let num = 1;
 
   
   face.classList.add('nomal-face');
@@ -20,9 +20,13 @@
     const h = String(d.getHours()-9).padStart(2, '0');
     const m = String(d.getMinutes()).padStart(2, '0');
     const s = String(d.getSeconds()).padStart(2, '0');
-    timer.textContent = `${h}:${m}:${s}`;
+    const ms = String(d.getMilliseconds()).padStart(3, '0');
+    timer.textContent = `${h}:${m}:${s}.${ms}`;
     
-    if((num % 3) === 0 || /3/.test(num)){
+    if((d.getSeconds() === 0)){
+      face.classList.remove('funny-face');
+      face.classList.add('nomal-face');
+    }else if((d.getSeconds() % 3) === 0 || /3/.test(d.getSeconds())){
       face.classList.remove('nomal-face');
       face.classList.add('funny-face');
     }else{
@@ -32,8 +36,8 @@
     
     timeoutId = setTimeout(() => {
       countUp();
-      num++;
-    }, 1000);
+      // num++;
+    }, 10);
   }
 
   function setButtonStateInitial() {
@@ -81,7 +85,7 @@
       return;
     }
     setButtonStateInitial();
-    timer.textContent = '00:00:00';
+    timer.textContent = '00:00:00.000';
     elapsedTime = 0;
   });
 }
